@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>탭UI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="box1">
+        <div class="bt1">
+            <ul>
+                <li class="active"><a href="">음료</a></li>
+                <li><a href="">화장품</a></li>
+                <li><a href="">꽃</a></li>
+                <li><a href="">신발</a></li>
+            </ul>
+        </div>
+        <div class="pannel1">
+            <div class="pan view">
+                <ul>
+                    <li><a href=""><img src="img/bottle_01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/bottle_02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/bottle_03.jpg" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="pan">
+                <ul>
+                    <li><a href=""><img src="img/cosmetic01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/cosmetic02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/cosmetic03.jpg" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="pan">
+                <ul>
+                    <li><a href=""><img src="img/flower01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/flower02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/flower03.jpg" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="pan">
+                <ul>
+                    <li><a href=""><img src="img/shoes01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/shoes02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/shoes03.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+        }
+        .box1{
+            margin: 30px;
+        }
+        .bt1{
+            margin-bottom: 20px;
+        }
+        .bt1 ul{
+            display: flex;
+        }
+        .bt1 li{
+            margin-right: 20px;
+        }
+        .bt1 li a{
+            color: #555;
+        }
+        .bt1 .active a{
+            color: red;
+        }
+        .pannel1 img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        .pannel1 .pan{
+            display: none;
+        }
+        .pannel1 .pan.view{
+            display: block;
+        }
+        .pannel1 .pan ul{
+            display: flex;
+        }
+    </style>
+    <script>
+        /*
+        1) 버튼영역을 클릭 
+            2) 클릭의 원래 기능 무효화
+            3) 클릭 한 버튼 영역의 순서값 저장
+            4) 모든 버튼 영역의 .active삭제
+            5) 모든 판 영역의 .view삭제
+            6) 클릭 한 버튼 영역에 .active추가
+            7)  판 영역 중 3번 순서값을 가진 대상에만 .view추가
+        */
+        $('.bt1 li').click(function(e){
+            e.preventDefault();
+            let idx = $(this).index();
+            $('.bt1 li').removeClass('active');
+            $('.box1 .pan').removeClass('view');
+            $(this).addClass('active');
+            $('.box1 .pan').eq(idx).addClass('view');
+        });
+
+        /*
+        $('.bt1 li a').click(function(){
+            let idx = $(this).parent().index();
+        });
+        */
+    </script>
+    <div class="box2">
+        <div class="wrap on">
+            <h3 class="title"><a href="">음료</a></h3>
+            <div class="list">
+                <ul>
+                    <li><a href=""><img src="img/bottle_01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/bottle_02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/bottle_03.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap">
+            <h3 class="title"><a href="">화장품</a></h3>
+            <div class="list">
+                <ul>
+                    <li><a href=""><img src="img/cosmetic01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/cosmetic02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/cosmetic03.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap">
+            <h3 class="title"><a href="">꽃</a></h3>
+            <div class="list">
+                <ul>
+                    <li><a href=""><img src="img/flower01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/flower02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/flower03.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="wrap">
+            <h3 class="title"><a href="">신발</a></h3>
+            <div class="list">
+                <ul>
+                    <li><a href=""><img src="img/shoes01.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/shoes02.jpg" alt=""></a></li>
+                    <li><a href=""><img src="img/shoes03.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <style>
+        .box2{
+            position: relative;
+            display: flex;
+            height: 140px;
+            margin: 30px;
+            background-color: antiquewhite;
+        }
+        .box2 .wrap{
+            margin-right: 20px;
+        }
+        .box2 .wrap .title a{
+            color: #555;
+            font-weight: normal;
+        }
+        .box2 .wrap.on .title a{
+            color: blue;
+            font-weight: bold;
+        }
+        .box2 .list{
+            position: absolute;
+            top: 40px;
+            left: 0;
+            display: none;
+        }
+        .box2 .wrap.on .list{
+            display: block;
+        }
+        .box2 .list ul{
+            display: flex;
+        }
+        .box2 .list img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        /*
+        1) 버튼영역을 클릭 
+            2) 클릭의 원래 기능 무효화
+            3) 모든 .wrap의 .on삭제
+            4) 클릭 한 버튼 영역의 부모 .wrap에 .on추가
+        */
+        /*
+        $('.box2 .wrap .title').click(function(e){
+            e.preventDefault();
+            $('.box2 .wrap').removeClass('on');
+            $(this).parent().addClass('on');
+        });
+        */
+
+        $('.box2 .wrap .title a').click(function(e){
+            e.preventDefault();
+            $('.box2 .wrap').removeClass('on');
+            $(this).parents('.wrap').addClass('on');
+        });
+    </script>
+</body>
+</html>

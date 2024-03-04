@@ -39,6 +39,7 @@
     font-size: 18px;
 }
 /* 메인슬라이드 */
+
 .mainslide{
     margin-bottom: 20px;
 }
@@ -452,7 +453,7 @@
     .mainslide .mo{
         display: none;
     }
-    .mainslide{
+    .mainslide1, .mainslide2, .mainslide3, .mainslide4{
         position: relative;
     }
     .mainslide .pc{
@@ -465,9 +466,9 @@
     .mstext{
         color: #ffffff;
         position: absolute;
-        top: 12vw;
-        left: 15vw;
-    }
+        top: 20vh;
+        left: 20vw;
+    }    
     .ms_title{
         font-size: 2vw;
         line-height: 1.2em;
@@ -814,7 +815,12 @@
     .slidelist li{
         padding: 10px 50px;
     }
-
+    .mstext{
+        color: #ffffff;
+        position: absolute;
+        top: 35vh;
+        left: 20vw;
+    }    
     /* 1440 섹션1 */
     .section1{
         width: 1440px;
